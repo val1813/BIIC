@@ -96,15 +96,18 @@ Key insight: **Clifford algebra Cl(4,1) provides both invariant and equivariant 
 <br><em>Fig 4. Different tokens achieve near-orthogonal grade-0 representations</em>
 </p>
 
-### Phase 3: 对照实验 / Comparative (partial) 🔄
+### Phase 3: 对照实验 / Comparative 🔄
 
 | Group | Description | Final Loss (mean ± std, 3 seeds) |
 |:---|:---|:---|
-| A2 | BIIC + Weak Eraser (0.01) | 10.8279 ± 0.0018 ✅ |
+| A1 | BIIC Full (Eraser=0.5) | **10.8285 ± 0.0008** ✅ |
+| A2 | BIIC + Weak Eraser (0.01) | 10.8289 ± 0.0010 ✅ |
 | B | Orthogonal Token + tanh (H1 baseline) | 10.8319 ± 0.0020 ✅ |
-| A1 | BIIC Full (Eraser=0.5) | 🔄 Running (seed 456) |
+| C | Linear + LayerNorm (lower bound) | 10.8292 ± 0.0007 ✅ |
 | D | BIIC grade-0 only (H2 ablation) | 🔄 Running |
-| C/E | Linear baseline / 2048-dim | ⏳ Queued |
+| E | 2048-dim Embedding (H2 dim-matched) | 🔄 Running |
+
+**Preliminary H1 result:** A1 (10.8285) < B (10.8319) — geometric structure shows slight advantage over orthogonal baseline.
 
 ### Phase 4: 语言模型训练 / Language Model Training 🔄
 
