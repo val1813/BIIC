@@ -1,0 +1,255 @@
+{
+  "phase": 1,
+  "description": "Cl(4,1) Clifford Algebra Mathematical Verification",
+  "timestamp": "2026-05-11 10:14:37",
+  "hardware": "CPU (no GPU needed)",
+  "n_seeds": 3,
+  "tests": {
+    "seed_0": {
+      "test1_mult_table": {
+        "max_error": 0.0,
+        "all_errors": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pass": true
+      },
+      "test2_rotor_verify": {
+        "max_identity_error": 6.556510925292969e-07,
+        "max_odd_ratio": 0.0,
+        "pass": true
+      },
+      "test3_grade0_invariance": {
+        "max_error": 1.6689300537109375e-05,
+        "mean_error": 6.204843521118164e-06,
+        "std_error": 4.343800692556763e-06,
+        "all_errors": [
+          3.069639205932617e-06,
+          1.2040138244628906e-05,
+          5.841255187988281e-06,
+          2.6226043701171875e-06,
+          3.904104232788086e-06,
+          5.602836608886719e-06,
+          3.933906555175781e-06,
+          1.6689300537109375e-05,
+          5.364418029785156e-06,
+          2.9802322387695312e-06
+        ],
+        "pass": true
+      },
+      "test4_grade5_invariance": {
+        "max_error": 1.2755393981933594e-05,
+        "mean_error": 4.517659544944763e-06,
+        "pass": true
+      },
+      "test5_grade1_equivariance": {
+        "max_error": 1.1444091796875e-05,
+        "mean_error": 1.1591240763664245e-06,
+        "pass": true
+      },
+      "test6_gradient_flow": {
+        "grad_first": 0,
+        "grad_last": 0,
+        "ratio": 0.0,
+        "pass": false
+      },
+      "test7_multichannel": {
+        "max_leakage": 0.0,
+        "pass": true
+      },
+      "test8_eraser_convergence": {
+        "convergence_error": 2.9802322387695312e-08,
+        "pass": true
+      },
+      "test9_immutable_core": {
+        "grade0_error": 0.0,
+        "grade5_error": 0.0,
+        "pass": true
+      },
+      "test10_decay_gradient": {
+        "grad_norm": 0.4352357089519501,
+        "grad_min": 0.00021166873921174556,
+        "pass": true
+      },
+      "summary": "9/10 PASS"
+    },
+    "seed_1": {
+      "test1_mult_table": {
+        "max_error": 0.0,
+        "all_errors": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pass": true
+      },
+      "test2_rotor_verify": {
+        "max_identity_error": 6.556510925292969e-07,
+        "max_odd_ratio": 0.0,
+        "pass": true
+      },
+      "test3_grade0_invariance": {
+        "max_error": 1.4781951904296875e-05,
+        "mean_error": 6.64715189486742e-06,
+        "std_error": 4.9568663402014806e-06,
+        "all_errors": [
+          1.8477439880371094e-06,
+          2.384185791015625e-06,
+          6.854534149169922e-06,
+          1.0848045349121094e-05,
+          1.4781951904296875e-05,
+          1.1920928955078125e-05,
+          2.5331974029541016e-07,
+          1.0132789611816406e-05,
+          3.550667315721512e-07,
+          7.092952728271484e-06
+        ],
+        "pass": true
+      },
+      "test4_grade5_invariance": {
+        "max_error": 1.33514404296875e-05,
+        "mean_error": 6.99162483215332e-06,
+        "pass": true
+      },
+      "test5_grade1_equivariance": {
+        "max_error": 1.430511474609375e-06,
+        "mean_error": 6.038695573806762e-07,
+        "pass": true
+      },
+      "test6_gradient_flow": {
+        "grad_first": 0,
+        "grad_last": 0,
+        "ratio": 0.0,
+        "pass": false
+      },
+      "test7_multichannel": {
+        "max_leakage": 0.0,
+        "pass": true
+      },
+      "test8_eraser_convergence": {
+        "convergence_error": 2.9802322387695312e-08,
+        "pass": true
+      },
+      "test9_immutable_core": {
+        "grade0_error": 0.0,
+        "grade5_error": 0.0,
+        "pass": true
+      },
+      "test10_decay_gradient": {
+        "grad_norm": 0.4264882802963257,
+        "grad_min": 4.886619353783317e-05,
+        "pass": true
+      },
+      "summary": "9/10 PASS"
+    },
+    "seed_2": {
+      "test1_mult_table": {
+        "max_error": 0.0,
+        "all_errors": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pass": true
+      },
+      "test2_rotor_verify": {
+        "max_identity_error": 7.79458787292242e-07,
+        "max_odd_ratio": 0.0,
+        "pass": true
+      },
+      "test3_grade0_invariance": {
+        "max_error": 2.193450927734375e-05,
+        "mean_error": 6.837956607341766e-06,
+        "std_error": 5.9351886006401414e-06,
+        "all_errors": [
+          8.344650268554688e-06,
+          3.814697265625e-06,
+          8.702278137207031e-06,
+          3.635883331298828e-06,
+          5.185604095458984e-06,
+          3.8743019104003906e-07,
+          2.193450927734375e-05,
+          4.284083843231201e-08,
+          6.556510925292969e-06,
+          9.775161743164062e-06
+        ],
+        "pass": true
+      },
+      "test4_grade5_invariance": {
+        "max_error": 1.043081283569336e-05,
+        "mean_error": 4.367530345916748e-06,
+        "pass": true
+      },
+      "test5_grade1_equivariance": {
+        "max_error": 1.049041748046875e-05,
+        "mean_error": 1.099705696105957e-06,
+        "pass": true
+      },
+      "test6_gradient_flow": {
+        "grad_first": 0,
+        "grad_last": 0,
+        "ratio": 0.0,
+        "pass": false
+      },
+      "test7_multichannel": {
+        "max_leakage": 0.0,
+        "pass": true
+      },
+      "test8_eraser_convergence": {
+        "convergence_error": 2.9802322387695312e-08,
+        "pass": true
+      },
+      "test9_immutable_core": {
+        "grade0_error": 0.0,
+        "grade5_error": 0.0,
+        "pass": true
+      },
+      "test10_decay_gradient": {
+        "grad_norm": 0.4635210335254669,
+        "grad_min": 0.0006799465045332909,
+        "pass": true
+      },
+      "summary": "9/10 PASS"
+    }
+  },
+  "aggregate": {
+    "test1_mult_table": {
+      "all_seeds_pass": true
+    },
+    "test2_rotor_verify": {
+      "all_seeds_pass": true
+    },
+    "test3_grade0_invariance": {
+      "all_seeds_pass": true
+    },
+    "test4_grade5_invariance": {
+      "all_seeds_pass": true
+    },
+    "test5_grade1_equivariance": {
+      "all_seeds_pass": true
+    },
+    "test6_gradient_flow": {
+      "all_seeds_pass": false
+    },
+    "test7_multichannel": {
+      "all_seeds_pass": true
+    },
+    "test8_eraser_convergence": {
+      "all_seeds_pass": true
+    },
+    "test9_immutable_core": {
+      "all_seeds_pass": true
+    },
+    "test10_decay_gradient": {
+      "all_seeds_pass": true
+    },
+    "total": "9/10 ALL SEEDS PASS"
+  }
+}
