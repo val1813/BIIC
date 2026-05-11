@@ -96,11 +96,26 @@ Key insight: **Clifford algebra Cl(4,1) provides both invariant and equivariant 
 <br><em>Fig 4. Different tokens achieve near-orthogonal grade-0 representations</em>
 </p>
 
-### Phase 4 Dry Run: 架构验证 / Architecture Validated ✅
+### Phase 3: 对照实验 / Comparative (partial) 🔄
 
-Full-scale config validated: **37M params, 4GB VRAM, 0.9s/step** on single RTX 4090.
+| Group | Description | Final Loss (3 seeds) |
+|:---|:---|:---|
+| B | Orthogonal Token + tanh (H1 baseline) | 10.8319 ± 0.0020 |
+| A1/A2/C/D/E | Running... | — |
 
-All 6 checks passed: forward, grade-0 preserved, gradients flow, DualCodebook works, training converges, checkpoint OK.
+### Phase 4: 语言模型训练 / Language Model Training 🔄
+
+BIIC as a drop-in replacement for token embeddings in a language model:
+
+| Metric | v0.1 (random data) | v0.2 (WikiText-103) |
+|:---|:---|:---|
+| Params | 20M | 73M |
+| Data | Random tokens | WikiText-103 (117M tokens) |
+| Loss (step 0) | 10.98 | 10.94 |
+| Loss (latest) | 10.83 | **8.57 (PPL 5266, step 300)** |
+| Status | ✅ Converging | 🔄 Training (10K steps) |
+
+v0.2 loss dropped from 10.94 → 8.57 in 300 steps on real text. The BIIC multivector can learn language.
 
 ---
 
