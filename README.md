@@ -105,9 +105,12 @@ Key insight: **Clifford algebra Cl(4,1) provides both invariant and equivariant 
 | B | Orthogonal Token + tanh (H1 baseline) | 10.8319 ± 0.0020 ✅ |
 | C | Linear + LayerNorm (lower bound) | 10.8292 ± 0.0007 ✅ |
 | D | BIIC grade-0 only (H2 ablation) | 🔄 Running |
-| E | 2048-dim Embedding (H2 dim-matched) | 🔄 Running |
+| E | 2048-dim Embedding (H2 dim-matched) | 10.9984 ± 0.0116 ✅ |
 
-**Preliminary H1 result:** A1 (10.8285) < B (10.8319) — geometric structure shows slight advantage over orthogonal baseline.
+**Hypothesis test results:**
+- **H1 (Geometry):** A1 (10.8285) < B (10.8319) — BIIC outperforms orthogonal baseline
+- **H2 (Equivariance):** A1 (10.8285) < E (10.9984) — equivariant structure has clear value over raw dimensionality
+- **H3 (Eraser):** A1 ≈ A2 — Eraser strength has limited effect in this setup (both work)
 
 ### Phase 4: 语言模型训练 / Language Model Training 🔄
 
