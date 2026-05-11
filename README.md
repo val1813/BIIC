@@ -1,5 +1,12 @@
 # BIIC: Bio-Inspired Information Cell
 
+**→ [View full project page:val1813.github.io/BIIC/README](https://val1813.github.io/BIIC/README.html)**点击这个网站详看
+
+A geometric algebra framework for lossless information representation in language models.
+
+
+# BIIC: Bio-Inspired Information Cell
+
 **基于几何代数的语言模型无损信息表示框架**
 
 A geometric algebra framework for lossless information representation in language models.
