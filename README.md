@@ -96,21 +96,22 @@ Key insight: **Clifford algebra Cl(4,1) provides both invariant and equivariant 
 <br><em>Fig 4. Different tokens achieve near-orthogonal grade-0 representations</em>
 </p>
 
-### Phase 3: 对照实验 / Comparative 🔄
+### Phase 3: 对照实验 / Comparative ✅
 
 | Group | Description | Final Loss (mean ± std, 3 seeds) |
 |:---|:---|:---|
-| A1 | BIIC Full (Eraser=0.5) | **10.8285 ± 0.0008** ✅ |
-| A2 | BIIC + Weak Eraser (0.01) | 10.8289 ± 0.0010 ✅ |
-| B | Orthogonal Token + tanh (H1 baseline) | 10.8319 ± 0.0020 ✅ |
-| C | Linear + LayerNorm (lower bound) | 10.8292 ± 0.0007 ✅ |
-| D | BIIC grade-0 only (H2 ablation) | 🔄 Running |
-| E | 2048-dim Embedding (H2 dim-matched) | 10.9984 ± 0.0116 ✅ |
+| A1 | BIIC Full (Eraser=0.5) | **10.8285 ± 0.0008** |
+| A2 | BIIC + Weak Eraser (0.01) | 10.8289 ± 0.0010 |
+| B | Orthogonal Token + tanh (H1 baseline) | 10.8319 ± 0.0020 |
+| C | Linear + LayerNorm (lower bound) | 10.8292 ± 0.0007 |
+| D | BIIC grade-0 only (H2 ablation) | 10.8271 ± 0.0037 |
+| E | 2048-dim Embedding (H2 dim-matched) | 10.9984 ± 0.0116 |
 
 **Hypothesis test results:**
-- **H1 (Geometry):** A1 (10.8285) < B (10.8319) — BIIC outperforms orthogonal baseline
-- **H2 (Equivariance):** A1 (10.8285) < E (10.9984) — equivariant structure has clear value over raw dimensionality
-- **H3 (Eraser):** A1 ≈ A2 — Eraser strength has limited effect in this setup (both work)
+- **H1 (Geometry):** A1 (10.8285) < B (10.8319) — geometric structure outperforms orthogonal baseline
+- **H2 (Equivariance):** A1 (10.8285) << E (10.9984) — equivariant structure has clear value over raw dimensionality
+- **H2b:** D (10.8271) ≈ A1 (10.8285) — grade-0 alone is surprisingly strong (equivariant grades add marginal value in this setup)
+- **H3 (Eraser):** A1 ≈ A2 — Eraser strength has limited effect at seq_len=64
 
 ### Phase 4: 语言模型训练 / Language Model Training 🔄
 
