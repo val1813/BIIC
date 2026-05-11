@@ -98,10 +98,13 @@ Key insight: **Clifford algebra Cl(4,1) provides both invariant and equivariant 
 
 ### Phase 3: 对照实验 / Comparative (partial) 🔄
 
-| Group | Description | Final Loss (3 seeds) |
+| Group | Description | Final Loss (mean ± std, 3 seeds) |
 |:---|:---|:---|
-| B | Orthogonal Token + tanh (H1 baseline) | 10.8319 ± 0.0020 |
-| A1/A2/C/D/E | Running... | — |
+| A2 | BIIC + Weak Eraser (0.01) | 10.8279 ± 0.0018 ✅ |
+| B | Orthogonal Token + tanh (H1 baseline) | 10.8319 ± 0.0020 ✅ |
+| A1 | BIIC Full (Eraser=0.5) | 🔄 Running (seed 456) |
+| D | BIIC grade-0 only (H2 ablation) | 🔄 Running |
+| C/E | Linear baseline / 2048-dim | ⏳ Queued |
 
 ### Phase 4: 语言模型训练 / Language Model Training 🔄
 
@@ -112,10 +115,10 @@ BIIC as a drop-in replacement for token embeddings in a language model:
 | Params | 20M | 73M |
 | Data | Random tokens | WikiText-103 (117M tokens) |
 | Loss (step 0) | 10.98 | 10.94 |
-| Loss (latest) | 10.83 | **8.57 (PPL 5266, step 300)** |
-| Status | ✅ Converging | 🔄 Training (10K steps) |
+| Loss (latest) | 10.83 (step 8470) | **6.35, PPL 572 (step 800)** |
+| Status | 🔄 Near complete | 🔄 Training (ETA ~28h) |
 
-v0.2 loss dropped from 10.94 → 8.57 in 300 steps on real text. The BIIC multivector can learn language.
+v0.2 loss: 10.94 → 6.35 in 800 steps on real text (PPL 58895 → 572). The BIIC multivector learns language structure.
 
 ---
 
