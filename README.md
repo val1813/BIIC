@@ -5,11 +5,11 @@
 A geometric algebra framework for lossless information representation in language models.
 
 
-# BIIC: Bio-Inspired Information Cell
+
 
 **基于几何代数的语言模型无损信息表示框架**
 
-A geometric algebra framework for lossless information representation in language models.
+
 
 [![License: BSL-1.1](https://img.shields.io/badge/License-BSL--1.1-blue.svg)](LICENSE)
 [![Phase 1](https://img.shields.io/badge/Phase%201-Complete-brightgreen)]()
