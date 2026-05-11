@@ -126,6 +126,23 @@ BIIC as a drop-in replacement for token embeddings in a language model:
 
 v0.2 loss: 10.94 → 6.35 in 800 steps on real text (PPL 58895 → 572). The BIIC multivector learns language structure.
 
+### Memory Scaling: BIIC vs Transformer ✅
+
+<p align="center">
+
+| seq_len | BIIC (MB) | Transformer (MB) | Growth |
+|:---:|:---:|:---:|:---:|
+| 256 | 747 | 431 | — |
+| 512 | 972 | 640 | — |
+| 1024 | 1425 | 1060 | — |
+| 2048 | 2327 | **2622** | **BIIC wins** |
+
+</p>
+
+**Key finding:** BIIC memory grows 3.1× from 256→2048, Transformer grows 6.1×. Crossover at ~1800 tokens. Beyond that, BIIC uses less memory — no KV cache.
+
+BIIC params: 74M, Transformer params: 53M (BIIC has higher base cost but better scaling).
+
 ---
 
 ## 实验计划 / Experiment Plan
