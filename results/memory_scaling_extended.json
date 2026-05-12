@@ -1,0 +1,66 @@
+{
+  "biic": [
+    {
+      "seq_len": 256,
+      "peak_mb": 525.6,
+      "status": "ok"
+    },
+    {
+      "seq_len": 512,
+      "peak_mb": 869.5,
+      "status": "ok"
+    },
+    {
+      "seq_len": 1024,
+      "peak_mb": 1548.3,
+      "status": "ok"
+    },
+    {
+      "seq_len": 2048,
+      "peak_mb": 2906.6,
+      "status": "ok"
+    },
+    {
+      "seq_len": 4096,
+      "peak_mb": 5623.7,
+      "status": "ok"
+    },
+    {
+      "seq_len": 8192,
+      "peak_mb": 11048.9,
+      "status": "ok"
+    }
+  ],
+  "transformer": [
+    {
+      "seq_len": 256,
+      "peak_mb": 664.2,
+      "status": "ok"
+    },
+    {
+      "seq_len": 512,
+      "peak_mb": 853.5,
+      "status": "ok"
+    },
+    {
+      "seq_len": 1024,
+      "peak_mb": 1388.4,
+      "status": "ok"
+    },
+    {
+      "seq_len": 2048,
+      "peak_mb": 2468.0,
+      "status": "ok"
+    },
+    {
+      "seq_len": 4096,
+      "peak_mb": 4658.3,
+      "status": "ok"
+    },
+    {
+      "seq_len": 8192,
+      "peak_mb": 9128.0,
+      "status": "ok"
+    }
+  ]
+}
