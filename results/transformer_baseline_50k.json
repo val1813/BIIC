@@ -1,0 +1,28 @@
+{
+  "model": "transformer_baseline",
+  "params": 52000256,
+  "final_loss": 3.987890135765076,
+  "final_ppl": 53.94096111436792,
+  "best_loss": 3.999820671081543,
+  "best_ppl": 54.58835988380372,
+  "total_steps": 50000,
+  "peak_vram_mb": 2558.057984,
+  "training_hours": 0.3516599179638757,
+  "config": {
+    "vocab_size": 50257,
+    "d_model": 512,
+    "n_heads": 8,
+    "n_layers": 8,
+    "d_ff": 2048,
+    "dropout": 0.1,
+    "batch_size": 8,
+    "seq_len": 256,
+    "n_steps": 50000,
+    "lr": 0.0003,
+    "warmup_steps": 2000,
+    "grad_clip": 1.0,
+    "eval_every": 2000,
+    "save_every": 10000,
+    "log_every": 50
+  }
+}
