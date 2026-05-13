@@ -1,0 +1,243 @@
+{
+  "verdict": {
+    "phase": "0",
+    "all_pass": false,
+    "pass_flags": {
+      "loss_ok": false,
+      "grad_alpha_ok": true,
+      "grad_B_ok": true,
+      "grad_FAM_ok": true,
+      "alpha_diversity_ok": true,
+      "flops_ok": true
+    },
+    "final_loss": 6.2267,
+    "final_alpha_cos_distance": 1.000819,
+    "final_grad": {
+      "grad_norm_alpha": 0.440469,
+      "grad_norm_B": 0.089726,
+      "grad_norm_FAM_W": 0.000475
+    },
+    "flops_ratio": 0.9571,
+    "flops_info": null,
+    "params": {
+      "BIF": 18669888,
+      "BIF-ablation": 18747968,
+      "Baseline": 16156416
+    },
+    "recommendation": "FAIL: check ['loss_ok']"
+  },
+  "checks": [
+    {
+      "step": 50,
+      "loss": 8.5454,
+      "val_ppl": 4717.0,
+      "grad_norm_alpha": 0.015634587034583092,
+      "grad_norm_B": 0.013186294585466385,
+      "grad_norm_FAM_W": 2.8661602300417144e-06,
+      "alpha_cos_distance_median": 0.997347,
+      "B_rank": {
+        "rank_90": 49,
+        "top1_ratio": 0.0361,
+        "top5_ratio": 0.1599,
+        "PR": 50.64
+      }
+    },
+    {
+      "step": 100,
+      "loss": 7.3627,
+      "val_ppl": 1732.09,
+      "grad_norm_alpha": 0.03605106100440025,
+      "grad_norm_B": 0.022728687152266502,
+      "grad_norm_FAM_W": 1.4264405763242394e-05,
+      "alpha_cos_distance_median": 0.998767,
+      "B_rank": {
+        "rank_90": 47,
+        "top1_ratio": 0.0885,
+        "top5_ratio": 0.2684,
+        "PR": 35.69
+      }
+    },
+    {
+      "step": 150,
+      "loss": 6.9712,
+      "val_ppl": 1107.24,
+      "grad_norm_alpha": 0.17783531546592712,
+      "grad_norm_B": 0.05854449421167374,
+      "grad_norm_FAM_W": 0.0001212022834806703,
+      "alpha_cos_distance_median": 1.006077,
+      "B_rank": {
+        "rank_90": 39,
+        "top1_ratio": 0.1419,
+        "top5_ratio": 0.4554,
+        "PR": 18.23
+      }
+    },
+    {
+      "step": 200,
+      "loss": 6.6642,
+      "val_ppl": 893.58,
+      "grad_norm_alpha": 0.23531341552734375,
+      "grad_norm_B": 0.060155369341373444,
+      "grad_norm_FAM_W": 0.00015158111636992544,
+      "alpha_cos_distance_median": 1.004778,
+      "B_rank": {
+        "rank_90": 36,
+        "top1_ratio": 0.1358,
+        "top5_ratio": 0.4499,
+        "PR": 17.86
+      }
+    },
+    {
+      "step": 250,
+      "loss": 6.8555,
+      "val_ppl": 764.54,
+      "grad_norm_alpha": 0.3194795846939087,
+      "grad_norm_B": 0.06529421359300613,
+      "grad_norm_FAM_W": 0.00016694871010258794,
+      "alpha_cos_distance_median": 1.005934,
+      "B_rank": {
+        "rank_90": 35,
+        "top1_ratio": 0.1291,
+        "top5_ratio": 0.4438,
+        "PR": 17.94
+      }
+    },
+    {
+      "step": 300,
+      "loss": 6.5195,
+      "val_ppl": 683.84,
+      "grad_norm_alpha": 0.32701030373573303,
+      "grad_norm_B": 0.07264265418052673,
+      "grad_norm_FAM_W": 0.00024103706527967006,
+      "alpha_cos_distance_median": 1.002827,
+      "B_rank": {
+        "rank_90": 34,
+        "top1_ratio": 0.1248,
+        "top5_ratio": 0.4355,
+        "PR": 18.11
+      }
+    },
+    {
+      "step": 350,
+      "loss": 6.5105,
+      "val_ppl": 628.39,
+      "grad_norm_alpha": 0.3459016978740692,
+      "grad_norm_B": 0.06477457284927368,
+      "grad_norm_FAM_W": 0.00024038690025918186,
+      "alpha_cos_distance_median": 1.001494,
+      "B_rank": {
+        "rank_90": 33,
+        "top1_ratio": 0.1218,
+        "top5_ratio": 0.4313,
+        "PR": 18.18
+      }
+    },
+    {
+      "step": 400,
+      "loss": 6.3292,
+      "val_ppl": 585.5,
+      "grad_norm_alpha": 0.40280675888061523,
+      "grad_norm_B": 0.08605507016181946,
+      "grad_norm_FAM_W": 0.00040374070522375405,
+      "alpha_cos_distance_median": 1.005377,
+      "B_rank": {
+        "rank_90": 32,
+        "top1_ratio": 0.1184,
+        "top5_ratio": 0.4271,
+        "PR": 18.3
+      }
+    },
+    {
+      "step": 450,
+      "loss": 6.377,
+      "val_ppl": 552.31,
+      "grad_norm_alpha": 0.40465790033340454,
+      "grad_norm_B": 0.08472783863544464,
+      "grad_norm_FAM_W": 0.00034671081812120974,
+      "alpha_cos_distance_median": 1.003972,
+      "B_rank": {
+        "rank_90": 32,
+        "top1_ratio": 0.1153,
+        "top5_ratio": 0.4213,
+        "PR": 18.51
+      }
+    },
+    {
+      "step": 500,
+      "loss": 6.41,
+      "val_ppl": 525.4,
+      "grad_norm_alpha": 0.4577976167201996,
+      "grad_norm_B": 0.10836444795131683,
+      "grad_norm_FAM_W": 0.0005701391492038965,
+      "alpha_cos_distance_median": 1.00153,
+      "B_rank": {
+        "rank_90": 31,
+        "top1_ratio": 0.1125,
+        "top5_ratio": 0.42,
+        "PR": 18.6
+      }
+    },
+    {
+      "step": 550,
+      "loss": 6.2696,
+      "val_ppl": 491.38,
+      "grad_norm_alpha": 0.41876208782196045,
+      "grad_norm_B": 0.10319671779870987,
+      "grad_norm_FAM_W": 0.0005003149854019284,
+      "alpha_cos_distance_median": 1.002395,
+      "B_rank": {
+        "rank_90": 31,
+        "top1_ratio": 0.1108,
+        "top5_ratio": 0.4165,
+        "PR": 18.76
+      }
+    },
+    {
+      "step": 600,
+      "loss": 6.2267,
+      "val_ppl": 470.61,
+      "grad_norm_alpha": 0.44046899676322937,
+      "grad_norm_B": 0.08972624689340591,
+      "grad_norm_FAM_W": 0.0004745943006128073,
+      "alpha_cos_distance_median": 1.004282,
+      "B_rank": {
+        "rank_90": 31,
+        "top1_ratio": 0.1091,
+        "top5_ratio": 0.4132,
+        "PR": 18.93
+      }
+    }
+  ],
+  "config": {
+    "k": 64,
+    "d": 256,
+    "n_layers": 4,
+    "n_heads": 4,
+    "ctx_window": 4,
+    "seq_len": 128,
+    "batch_size": 16,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "warmup_steps": 50,
+    "total_steps": 600,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "fam_lr_mult": 5.0,
+    "log_every": 10,
+    "check_every": 50,
+    "device": "cuda:0",
+    "results_dir": "/data/biic/results/bif_phase0",
+    "log_file": "/data/biic/logs/bif_phase0.log",
+    "pass_criteria": {
+      "loss_at_600_lt": 6.0,
+      "grad_norm_alpha_min": 0.0001,
+      "grad_norm_alpha_max": 10.0,
+      "grad_norm_B_min": 0.0001,
+      "grad_norm_B_max": 10.0,
+      "grad_norm_FAM_min": 0.0001,
+      "grad_norm_FAM_max": 10.0,
+      "alpha_cos_distance_min": 0.01,
+      "bif_flops_ratio_max": 1.05
+    }
+  }
+}

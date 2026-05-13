@@ -1,0 +1,450 @@
+{
+  "version": "phase1_v2",
+  "config": {
+    "k": 64,
+    "d": 256,
+    "n_heads": 4,
+    "bif_n_layers": 4,
+    "ablation_n_layers": 4,
+    "baseline_n_layers": 6,
+    "seq_len": 128,
+    "batch_size": 32,
+    "lr": 0.0003,
+    "fam_lr_mult": 5.0,
+    "weight_decay": 0.01,
+    "warmup_steps": 200,
+    "total_steps": 5000,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "log_every": 100,
+    "measure_every": 500,
+    "probe_every": 1000,
+    "ortho_reg_threshold": 10,
+    "device": "cuda:0",
+    "results_dir": "/data/biic/results/bif_phase1_v2",
+    "log_file": "/data/biic/logs/bif_phase1_v2.log",
+    "pass_criteria": {
+      "bif_vs_baseline_ppl_gap": 2.0,
+      "bif_vs_ablation_ppl_gap": 1.0,
+      "early_stop_steps": 2000,
+      "early_stop_gap": 3.0
+    }
+  },
+  "verdict": {
+    "ppl_BIF": 159.06,
+    "ppl_Baseline": 141.09,
+    "ppl_BIF_ablation": 196.04,
+    "bif_vs_baseline_gap": -17.97,
+    "fam_contribution_gap": 36.98,
+    "lowfreq_ppl_BIF": 35455.82,
+    "lowfreq_ppl_Base": 32435.61,
+    "lowfreq_advantage": -3020.21,
+    "bif_beats_baseline": false,
+    "fam_has_value": true,
+    "params": {
+      "Baseline": 17735936,
+      "BIF": 18669888,
+      "BIF-ablation": 18739776
+    },
+    "recommendation": "PARTIAL: FAM beats ablation by 37.0pt, but BIF=159.1 does not beat Baseline=141.1."
+  },
+  "training_curves": {
+    "Baseline": {
+      "steps": [
+        500,
+        1000,
+        1500,
+        2000,
+        2500,
+        3000,
+        3500,
+        4000,
+        4500,
+        5000
+      ],
+      "train_loss": [
+        6.2146,
+        5.8095,
+        5.4628,
+        5.2308,
+        4.9612,
+        4.8415,
+        4.9337,
+        4.9182,
+        4.8071,
+        4.8545
+      ],
+      "val_ppl": [
+        487.42,
+        300.54,
+        230.69,
+        192.8,
+        169.95,
+        156.9,
+        147.34,
+        143.37,
+        141.52,
+        141.09
+      ],
+      "lowfreq_ppl": [
+        156130.09,
+        87272.74,
+        64480.73,
+        53443.07,
+        42390.14,
+        38967.98,
+        35360.41,
+        32612.55,
+        32283.17,
+        32435.61
+      ],
+      "b_rank_history": [],
+      "probe_history": [
+        {
+          "step": 1000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 2000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 3000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 4000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 5000,
+          "probe_accuracy": 0.5833
+        }
+      ]
+    },
+    "BIF-ablation": {
+      "steps": [
+        500,
+        1000,
+        1500,
+        2000,
+        2500,
+        3000,
+        3500,
+        4000,
+        4500,
+        5000
+      ],
+      "train_loss": [
+        6.4158,
+        6.0023,
+        5.7666,
+        5.6395,
+        5.3694,
+        5.4726,
+        5.0967,
+        5.0621,
+        5.1559,
+        5.0848
+      ],
+      "val_ppl": [
+        564.38,
+        368.34,
+        295.58,
+        256.67,
+        229.91,
+        214.91,
+        203.3,
+        198.84,
+        196.62,
+        196.04
+      ],
+      "lowfreq_ppl": [
+        193678.12,
+        121337.07,
+        89305.35,
+        73126.56,
+        60864.79,
+        56768.01,
+        52299.51,
+        50575.61,
+        49978.7,
+        49809.44
+      ],
+      "b_rank_history": [
+        {
+          "step": 500,
+          "PR": 29.97,
+          "rank_90": 44,
+          "top1_ratio": 0.0816,
+          "top5_ratio": 0.3336
+        },
+        {
+          "step": 1000,
+          "PR": 27.94,
+          "rank_90": 43,
+          "top1_ratio": 0.0827,
+          "top5_ratio": 0.3401
+        },
+        {
+          "step": 1500,
+          "PR": 27.16,
+          "rank_90": 42,
+          "top1_ratio": 0.0839,
+          "top5_ratio": 0.3375
+        },
+        {
+          "step": 2000,
+          "PR": 26.89,
+          "rank_90": 41,
+          "top1_ratio": 0.0836,
+          "top5_ratio": 0.3328
+        },
+        {
+          "step": 2500,
+          "PR": 26.88,
+          "rank_90": 41,
+          "top1_ratio": 0.0832,
+          "top5_ratio": 0.3303
+        },
+        {
+          "step": 3000,
+          "PR": 26.98,
+          "rank_90": 41,
+          "top1_ratio": 0.0836,
+          "top5_ratio": 0.3282
+        },
+        {
+          "step": 3500,
+          "PR": 27.08,
+          "rank_90": 41,
+          "top1_ratio": 0.0837,
+          "top5_ratio": 0.3273
+        },
+        {
+          "step": 4000,
+          "PR": 27.17,
+          "rank_90": 41,
+          "top1_ratio": 0.0838,
+          "top5_ratio": 0.3268
+        },
+        {
+          "step": 4500,
+          "PR": 27.23,
+          "rank_90": 41,
+          "top1_ratio": 0.0837,
+          "top5_ratio": 0.3263
+        },
+        {
+          "step": 5000,
+          "PR": 27.23,
+          "rank_90": 41,
+          "top1_ratio": 0.0837,
+          "top5_ratio": 0.3263
+        }
+      ],
+      "probe_history": [
+        {
+          "step": 1000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 2000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 3000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 4000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 5000,
+          "probe_accuracy": 0.5833
+        }
+      ]
+    },
+    "BIF": {
+      "steps": [
+        500,
+        1000,
+        1500,
+        2000,
+        2500,
+        3000,
+        3500,
+        4000,
+        4500,
+        5000
+      ],
+      "train_loss": [
+        6.1327,
+        5.5479,
+        5.4571,
+        5.3521,
+        4.9941,
+        4.9245,
+        4.8454,
+        4.8193,
+        4.8204,
+        4.8923
+      ],
+      "val_ppl": [
+        458.67,
+        305.38,
+        242.79,
+        208.03,
+        185.07,
+        173.49,
+        165.04,
+        161.24,
+        159.33,
+        159.06
+      ],
+      "lowfreq_ppl": [
+        168284.13,
+        92346.98,
+        72452.6,
+        53139.76,
+        46302.04,
+        41711.12,
+        37009.61,
+        36632.94,
+        35305.7,
+        35455.82
+      ],
+      "b_rank_history": [
+        {
+          "step": 500,
+          "PR": 19.7,
+          "rank_90": 33,
+          "top1_ratio": 0.1107,
+          "top5_ratio": 0.4075
+        },
+        {
+          "step": 1000,
+          "PR": 23.28,
+          "rank_90": 33,
+          "top1_ratio": 0.0872,
+          "top5_ratio": 0.3487
+        },
+        {
+          "step": 1500,
+          "PR": 26.36,
+          "rank_90": 34,
+          "top1_ratio": 0.0758,
+          "top5_ratio": 0.3101
+        },
+        {
+          "step": 2000,
+          "PR": 28.62,
+          "rank_90": 36,
+          "top1_ratio": 0.0692,
+          "top5_ratio": 0.288
+        },
+        {
+          "step": 2500,
+          "PR": 30.26,
+          "rank_90": 37,
+          "top1_ratio": 0.0656,
+          "top5_ratio": 0.2745
+        },
+        {
+          "step": 3000,
+          "PR": 31.55,
+          "rank_90": 38,
+          "top1_ratio": 0.0626,
+          "top5_ratio": 0.2657
+        },
+        {
+          "step": 3500,
+          "PR": 32.24,
+          "rank_90": 38,
+          "top1_ratio": 0.0615,
+          "top5_ratio": 0.2614
+        },
+        {
+          "step": 4000,
+          "PR": 32.67,
+          "rank_90": 38,
+          "top1_ratio": 0.0608,
+          "top5_ratio": 0.2588
+        },
+        {
+          "step": 4500,
+          "PR": 32.82,
+          "rank_90": 39,
+          "top1_ratio": 0.0606,
+          "top5_ratio": 0.258
+        },
+        {
+          "step": 5000,
+          "PR": 32.84,
+          "rank_90": 39,
+          "top1_ratio": 0.0605,
+          "top5_ratio": 0.2579
+        }
+      ],
+      "probe_history": [
+        {
+          "step": 1000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 2000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 3000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 4000,
+          "probe_accuracy": 0.5833
+        },
+        {
+          "step": 5000,
+          "probe_accuracy": 0.5833
+        }
+      ]
+    }
+  },
+  "final_results": {
+    "Baseline": {
+      "val_ppl": 141.09,
+      "lowfreq_ppl": 32435.61,
+      "params": 17735936,
+      "ortho_lambda_used": 0.0,
+      "final_B_rank": null,
+      "final_probe_accuracy": 0.5833
+    },
+    "BIF-ablation": {
+      "val_ppl": 196.04,
+      "lowfreq_ppl": 49809.44,
+      "params": 18739776,
+      "ortho_lambda_used": 0.0,
+      "final_B_rank": {
+        "PR": 27.23,
+        "rank_90": 41,
+        "top1_ratio": 0.0837,
+        "top5_ratio": 0.3263
+      },
+      "final_probe_accuracy": 0.5833
+    },
+    "BIF": {
+      "val_ppl": 159.06,
+      "lowfreq_ppl": 35455.82,
+      "params": 18669888,
+      "ortho_lambda_used": 0.0,
+      "final_B_rank": {
+        "PR": 32.84,
+        "rank_90": 39,
+        "top1_ratio": 0.0605,
+        "top5_ratio": 0.2579
+      },
+      "final_probe_accuracy": 0.5833
+    }
+  }
+}

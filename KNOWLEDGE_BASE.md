@@ -456,21 +456,35 @@ VPS 需要代理：`HTTP_PROXY=http://proxy.mornai.cn:7890`
 
 ---
 
-## 九、下一步（如果还要继续）
+## 九、BIF 实验结果（已关闭）
 
-**唯一开放的假设：BIF Phase 1**
+**BIF Phase 1 v2 最终结论：PARTIAL，方向关闭。**
 
-目标：在参数量和 FLOPs 精确对齐的条件下，验证 FAM 的 PPL 增益是否真实、是否来自 FAM 本身。
+三组对比（参数对齐后）：
+- **Baseline**：标准 embedding + weight tying + 6层 Transformer → PPL = **141.09** (17.7M params)
+- **BIF**：α配方embedding + FAM + 3层 Transformer → PPL = 159.06 (18.7M params)
+- **BIF-ablation**：α配方embedding + 压缩attention + 3层 Transformer → PPL = 196.04 (18.7M params)
 
-三组对比：
-- **Baseline**：标准 embedding（V×d）+ 全部标准 attention
-- **BIF**：α配方embedding（V×k + k×d）+ FAM第一层 + 标准attention后续层
-- **BIF-ablation**：α配方embedding + 压缩版第一层attention（参数量≈FAM）+ 标准attention后续层
+判定结果：
+- BIF 超越 Baseline ≥ 2.0 PPL：**FAILED**（-17.97，BIF 更差）
+- BIF 超越 ablation ≥ 1.0 PPL：**PASSED**（+36.98）
 
-判定：BIF PPL 比 Baseline 低 >2 点，且比 BIF-ablation 低 >1 点，才算 FAM 有独立贡献。
+**瓶颈定位**：α配方 embedding 的表达容量。`e = alpha @ B` 把词表压缩到 64 维线性子空间，标准 embedding 的 256 维查表有更强的初始表达能力。B 矩阵 PR 持续爬升（19.7→32.8 未收敛）证明模型在挣扎利用有限容量。
 
-如果 BIF 通过，下一个问题是：FAM 做的是"固定词汇类型路由"（α 是静态的）还是真正有超越词汇类型的东西？这需要进一步分析。
+**FAM 机制本身有效**：用 4,096 参数（k×k=64×64）实现了标准 attention 262,144 参数的有效 token 交互，比 ablation 好 37 点 PPL。但被上游 embedding 瓶颈拖累。
 
-如果 BIF 失败（PPL 不如 Baseline），关闭这个方向，重新思考。
+| 数字 | 含义 | 来源 |
+|------|------|------|
+| BIF PPL 159.06 vs Baseline 141.09 | BIF 输 18 点，embedding 容量不足 | Phase 1 v2 |
+| FAM vs ablation +36.98 PPL | FAM 机制有独立价值 | Phase 1 v2 |
+| B 矩阵 PR 19.7→32.84 | 持续爬升未收敛，容量瓶颈 | Phase 1 v2 |
+| FAM 参数 4,096 vs attention 262,144 | FAM 参数效率高 64× | 架构设计 |
 
-**这条路走了三天，否定了很多假设，留下了一个还没有干净答案的信号。这本身就是有价值的地图。**
+**项目总结**：BIIC → SFE → BIF 三条路全部关闭。
+
+探索路径回顾：
+1. **BIIC**：几何代数等变分量在 LM 中不会自发激活（语言无物理对称性）
+2. **SFE**：动态 embedding 调制被 Transformer attention 系统性压制
+3. **BIF**：低维配方空间容量不足，无法替代标准 embedding
+
+这条路走了三天，否定了所有假设。这本身就是有价值的地图——标注了哪些路走不通，以及为什么走不通。

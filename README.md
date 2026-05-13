@@ -7,6 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Phase 1-6](https://img.shields.io/badge/Phases%201--6-Complete-brightgreen)]()
 [![Phase 0](https://img.shields.io/badge/Phase%200%20(SFE)-Closed-red)]()
+[![BIF](https://img.shields.io/badge/BIF-Closed-red)]()
 
 [中文](#关于这个项目) | [English](#about-this-project)
 
@@ -16,7 +17,7 @@
 
 我没有编程背景，也没有学术研究经历。这个项目是我尝试用 AI 作为研究伙伴，去探索一个我认为有意思的问题：**能否找到比 token embedding 更好的语义传送单元？**
 
-72 小时密集实验，7 个阶段，30+ 个对比实验。最终结论是：这条路走不通——但过程中积累了大量关于"什么不行、为什么不行"的实证数据。
+72 小时密集实验，8 个阶段，30+ 个对比实验。最终结论是：这条路走不通——但过程中积累了大量关于"什么不行、为什么不行"的实证数据。
 
 我把完整的实验代码、数据和分析都开源在这里。如果你对以下方向感兴趣，欢迎一起探索：
 - 几何代数在深度学习中的应用
@@ -29,7 +30,7 @@
 
 I have no programming background and no academic research experience. This project is my attempt to use AI as a research partner to explore a question I find fascinating: **Can we find a better semantic carrier than token embeddings?**
 
-72 hours of intensive experimentation, 7 phases, 30+ controlled experiments. The final conclusion: this path doesn't work — but the process yielded substantial empirical data about what fails and why.
+72 hours of intensive experimentation, 8 phases, 30+ controlled experiments. The final conclusion: this path doesn't work — but the process yielded substantial empirical data about what fails and why.
 
 All experiment code, data, and analysis are open-sourced here. If you're interested in any of the following, let's explore together:
 - Geometric algebra in deep learning
@@ -74,6 +75,7 @@ Key property: **Cl(4,1) provides both invariant and equivariant quantities in on
 | 5 | 等变分量激活 / Equivariant activation | 13 experiments all failed, alpha never exceeded 0.029 | ❌ |
 | 6 | 依存句法 / Dependency parsing | UAS 0.279 vs Transformer 0.752 (47pp gap) | ❌ |
 | 0 | SFE 微共生 / SFE micro-symbiosis | Transformer attention systematically suppresses embedding-layer modulation | ❌ |
+| 7-BIF | 因子化低维交互 / Factored low-dim interaction | BIF PPL=159 vs Baseline 141; FAM beats ablation by 37pt | ❌ |
 
 ---
 
@@ -99,6 +101,7 @@ Key property: **Cl(4,1) provides both invariant and equivariant quantities in on
 | 动态 embedding 在 Transformer 中存活 / Dynamic embedding survives in Transformer | 4 rounds of SFE consistently suppressed |
 | BIIC 在依存句法上有优势 / BIIC advantage in dep parsing | UAS gap 47pp, no data-efficiency crossover |
 | 长序列/深网络让等变分量更有效 / Longer seq/deeper net helps | alpha actually lower, PPL worse |
+| 低维配方 embedding 替代标准 embedding / Low-dim recipe embedding replaces standard | BIF PPL 159 vs Baseline 141 (-18pp) |
 
 ### 核心洞察 / Core Insights
 
@@ -169,7 +172,8 @@ BIIC/
 ├── phase3/                   # 假设检验 / Hypothesis testing
 ├── phase4/                   # 语言模型训练 / Language model training
 ├── phase5/                   # 等变分量激活 / Equivariant activation
-└── phase6/                   # 依存句法 MVP / Dependency parsing MVP
+├── phase6/                   # 依存句法 MVP / Dependency parsing MVP
+└── phase7-bif/               # BIF 因子化交互 / Factored interaction (BIF)
 ```
 
 每个 phase 目录下包含 / Each phase directory contains:
@@ -237,9 +241,10 @@ If you're interested in geometric algebra, representation learning, or "doing re
          Lossless Information Representation in Language Models},
   author={Huang, Zhongchang},
   year={2025},
-  note={Phases 1-6 complete. Key finding: grade-0 invariance verified,
-        equivariant components encode syntax but cannot be activated in LM.
-        Negative results documented as contribution.}
+  note={Phases 1-6 + BIF complete. All hypotheses falsified.
+        Key finding: grade-0 invariance verified, equivariant components
+        encode syntax but cannot be activated in LM. Low-dim factored
+        embedding bottlenecked by capacity. Negative results as contribution.}
 }
 ```
 

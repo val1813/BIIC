@@ -1,0 +1,109 @@
+
+<h2 class="sr-only">BIF Phase 1 v2 results: three models compared across PPL convergence and B matrix rank</h2>
+
+<style>
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem}
+.metric{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 14px}
+.metric-label{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px}
+.metric-val{font-size:22px;font-weight:500;color:var(--color-text-primary)}
+.metric-sub{font-size:11px;color:var(--color-text-tertiary);margin-top:2px}
+.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:var(--border-radius-md);margin-left:6px}
+.pass{background:var(--color-background-success);color:var(--color-text-success)}
+.fail{background:var(--color-background-danger);color:var(--color-text-danger)}
+.verdict{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 16px;margin-bottom:1.5rem;font-size:13px;line-height:1.6;color:var(--color-text-secondary)}
+.verdict strong{color:var(--color-text-primary);font-weight:500}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--color-text-secondary);margin-bottom:8px}
+.legend span{display:flex;align-items:center;gap:4px}
+.legend .dot{width:10px;height:10px;border-radius:2px}
+</style>
+
+<div class="metrics">
+  <div class="metric">
+    <div class="metric-label">Baseline PPL<span class="badge fail">✗ 对照</span></div>
+    <div class="metric-val">141.1</div>
+    <div class="metric-sub">17.7M params · 6层TF</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">BIF PPL<span class="badge fail">✗ 差18pt</span></div>
+    <div class="metric-val">159.1</div>
+    <div class="metric-sub">18.7M params · FAM+3TF</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Ablation PPL<span class="badge pass">✓ BIF赢37pt</span></div>
+    <div class="metric-val">196.0</div>
+    <div class="metric-sub">18.7M params · 压缩attn+3TF</div>
+  </div>
+</div>
+
+<div class="verdict">
+  <strong>FAM有独立价值（+37pt over ablation）</strong>，但整体架构输给标准Transformer 18pt。<br>
+  两次实验（v1/v2）结论一致：BIF的瓶颈在α配方embedding的表达能力，不在FAM机制本身。<br>
+  B矩阵PR：BIF从19.7→32.8（持续上升），ablation从30→27（稳定），两者行为截然不同。
+</div>
+
+<div class="legend">
+  <span><span class="dot" style="background:#378ADD"></span>Baseline</span>
+  <span><span class="dot" style="background:#1D9E75"></span>BIF</span>
+  <span><span class="dot" style="background:#BA7517"></span>BIF-ablation</span>
+</div>
+
+<div style="position:relative;width:100%;height:260px;margin-bottom:1.5rem">
+  <canvas id="pplChart" role="img" aria-label="PPL convergence: Baseline reaches 141, BIF reaches 159, Ablation reaches 196 over 5000 steps">PPL curves over training steps.</canvas>
+</div>
+
+<div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:8px">B矩阵有效秩（PR）：BIF持续上升，ablation趋于稳定</div>
+<div style="position:relative;width:100%;height:200px">
+  <canvas id="rankChart" role="img" aria-label="B matrix participation ratio: BIF rises from 19 to 33, ablation stays around 27">B matrix PR over training steps.</canvas>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const steps = [500,1000,1500,2000,2500,3000,3500,4000,4500,5000];
+const pplBase = [487.42,300.54,230.69,192.8,169.95,156.9,147.34,143.37,141.52,141.09];
+const pplBIF  = [458.67,305.38,242.79,208.03,185.07,173.49,165.04,161.24,159.33,159.06];
+const pplAbl  = [564.38,368.34,295.58,256.67,229.91,214.91,203.3,198.84,196.62,196.04];
+
+const prBIF   = [19.7,23.28,26.36,28.62,30.26,31.55,32.24,32.67,32.82,32.84];
+const prAbl   = [29.97,27.94,27.16,26.89,26.88,26.98,27.08,27.17,27.23,27.23];
+
+const labels = steps.map(s => s===500?'500':s===1000?'1k':s===2000?'2k':s===3000?'3k':s===4000?'4k':s===5000?'5k':'');
+
+new Chart(document.getElementById('pplChart'),{
+  type:'line',
+  data:{
+    labels,
+    datasets:[
+      {label:'Baseline',data:pplBase,borderColor:'#378ADD',backgroundColor:'transparent',borderWidth:2,pointRadius:0,tension:0.3},
+      {label:'BIF',data:pplBIF,borderColor:'#1D9E75',backgroundColor:'transparent',borderWidth:2,pointRadius:0,tension:0.3,borderDash:[5,3]},
+      {label:'BIF-ablation',data:pplAbl,borderColor:'#BA7517',backgroundColor:'transparent',borderWidth:2,pointRadius:0,tension:0.3,borderDash:[2,2]},
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{color:'rgba(128,128,128,0.1)'},ticks:{color:'#888',font:{size:11}}},
+      y:{grid:{color:'rgba(128,128,128,0.1)'},ticks:{color:'#888',font:{size:11}},min:100,max:600}
+    }
+  }
+});
+
+new Chart(document.getElementById('rankChart'),{
+  type:'line',
+  data:{
+    labels,
+    datasets:[
+      {label:'BIF B_PR',data:prBIF,borderColor:'#1D9E75',backgroundColor:'transparent',borderWidth:2,pointRadius:0,tension:0.3,borderDash:[5,3]},
+      {label:'Ablation B_PR',data:prAbl,borderColor:'#BA7517',backgroundColor:'transparent',borderWidth:2,pointRadius:0,tension:0.3,borderDash:[2,2]},
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{color:'rgba(128,128,128,0.1)'},ticks:{color:'#888',font:{size:11}}},
+      y:{grid:{color:'rgba(128,128,128,0.1)'},ticks:{color:'#888',font:{size:11}},min:10,max:45}
+    }
+  }
+});
+</script>
