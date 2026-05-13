@@ -1,0 +1,145 @@
+{
+  "config": {
+    "models": [
+      "A_static",
+      "B_sfe_full",
+      "C_sfe_ablation"
+    ],
+    "k": 64,
+    "d": 256,
+    "ctx_window": 4,
+    "n_layers": 4,
+    "total_steps": 3000,
+    "actual_batch_size": 32
+  },
+  "training_curves": {
+    "A_static": {
+      "steps": [
+        500,
+        1000,
+        1500,
+        2000,
+        2500,
+        3000
+      ],
+      "train_loss": [
+        6.3396,
+        5.6952,
+        5.3633,
+        5.3556,
+        4.8975,
+        5.012
+      ],
+      "val_ppl": [
+        462.48,
+        291.73,
+        232.14,
+        205.34,
+        193.86,
+        192.26
+      ]
+    },
+    "C_sfe_ablation": {
+      "steps": [
+        500,
+        1000,
+        1500,
+        2000,
+        2500,
+        3000
+      ],
+      "train_loss": [
+        6.3309,
+        5.969,
+        5.7474,
+        5.4678,
+        5.3182,
+        5.5392
+      ],
+      "val_ppl": [
+        531.48,
+        355.75,
+        289.94,
+        258.3,
+        245.36,
+        243.11
+      ],
+      "alpha_cos_mean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "probe_accuracy": [
+        0.6475,
+        0.6475,
+        0.6475
+      ]
+    },
+    "B_sfe_full": {
+      "steps": [
+        500,
+        1000,
+        1500,
+        2000,
+        2500,
+        3000
+      ],
+      "train_loss": [
+        6.3428,
+        5.8709,
+        5.7535,
+        5.496,
+        5.3833,
+        5.4314
+      ],
+      "val_ppl": [
+        528.41,
+        359.33,
+        300.77,
+        266.86,
+        252.34,
+        249.95
+      ],
+      "alpha_cos_mean": [
+        0.852,
+        0.8792,
+        0.8859,
+        0.8953,
+        0.8976,
+        0.8981
+      ],
+      "probe_accuracy": [
+        0.6316,
+        0.6316,
+        0.6316
+      ]
+    }
+  },
+  "final": {
+    "A_static": {
+      "val_ppl": 192.26,
+      "params": 29022208
+    },
+    "C_sfe_ablation": {
+      "val_ppl": 243.11,
+      "params": 19389248,
+      "alpha_cos_mean_final": 1.0,
+      "probe_accuracy_final": 0.6475
+    },
+    "B_sfe_full": {
+      "val_ppl": 249.95,
+      "params": 19454848,
+      "alpha_cos_mean_final": 0.8981,
+      "probe_accuracy_final": 0.6316
+    }
+  },
+  "verdict": {
+    "g_ctx_works": false,
+    "sfe_better_than_static": false,
+    "dynamic_matters": false,
+    "recommendation": "SFE embedding-layer hypothesis rejected: focus on middle-layer mechanisms"
+  }
+}

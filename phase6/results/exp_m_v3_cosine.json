@@ -1,0 +1,148 @@
+{
+  "cosine_by_rel": {
+    "nsubj": {
+      "mean": 0.14583825902391467,
+      "std": 0.09357322149488416,
+      "n": 2483
+    },
+    "obj": {
+      "mean": 0.15299383982773773,
+      "std": 0.08601061178734454,
+      "n": 1361
+    },
+    "amod": {
+      "mean": 0.15836021865594369,
+      "std": 0.09033216017303455,
+      "n": 2206
+    },
+    "none": {
+      "mean": 0.1483724844524139,
+      "std": 0.11894927632559783,
+      "n": 4236
+    }
+  },
+  "diff_norm_by_rel": {
+    "nsubj": {
+      "mean": 14.171724265302519,
+      "std": 1.0516174377092051,
+      "n": 2483
+    },
+    "obj": {
+      "mean": 14.234730232121048,
+      "std": 0.9836942901942521,
+      "n": 1361
+    },
+    "amod": {
+      "mean": 14.133408175094065,
+      "std": 1.02385467965971,
+      "n": 2206
+    },
+    "none": {
+      "mean": 14.354120293352489,
+      "std": 1.4034794439161846,
+      "n": 4236
+    }
+  },
+  "ttest_all_dep_vs_none": {
+    "t_stat": 1.7579926813604136,
+    "p_value": 0.0787784996708536,
+    "cohens_d": 0.03439780257418608
+  },
+  "experiment": "M v3: Grade-2 Cosine Similarity Analysis",
+  "checkpoint": "/data/biic/biic_lm/checkpoints/final.pt",
+  "checkpoint_step": 10000,
+  "n_dep_pairs": 6050,
+  "n_nodep_pairs": 4236,
+  "ttest_per_rel": {
+    "nsubj": {
+      "t_stat": -0.9092849500252349,
+      "p_value": 0.3632323571795786,
+      "cohens_d": -0.02368079343839135,
+      "significant": false
+    },
+    "obj": {
+      "t_stat": 1.3259877486142884,
+      "p_value": 0.18489788502698687,
+      "cohens_d": 0.04452392275829859,
+      "significant": false
+    },
+    "amod": {
+      "t_stat": 3.4578991258178062,
+      "p_value": 0.000547926865419163,
+      "cohens_d": 0.09456786447512681,
+      "significant": true
+    }
+  },
+  "ttest_diff_per_rel": {
+    "nsubj": {
+      "t_stat": -5.616356398619123,
+      "p_value": 2.028290994721895e-08,
+      "cohens_d": -0.14708271944735873,
+      "significant": true
+    },
+    "obj": {
+      "t_stat": -2.916015016893549,
+      "p_value": 0.0035594188990152875,
+      "cohens_d": -0.09851468243681175,
+      "significant": true
+    },
+    "amod": {
+      "t_stat": -6.534834348230857,
+      "p_value": 6.855416409578057e-11,
+      "cohens_d": -0.1796714976570909,
+      "significant": true
+    }
+  },
+  "probe_accuracy_4class": 0.41804447871238226,
+  "probe_accuracy_4class_std": 0.008601363144950743,
+  "probe_accuracy_binary": 0.6194839210772857,
+  "dep_type_accuracy": {
+    "nsubj": 0.1401530406766009,
+    "obj": 0.0,
+    "amod": 0.18631006346328197,
+    "none": 0.8555240793201133
+  },
+  "top_channels": [
+    {
+      "ch": 2,
+      "diff": 0.053221687941923695
+    },
+    {
+      "ch": 12,
+      "diff": 0.043821735490734634
+    },
+    {
+      "ch": 19,
+      "diff": 0.039833538696632975
+    },
+    {
+      "ch": 8,
+      "diff": -0.037635201168730356
+    },
+    {
+      "ch": 28,
+      "diff": -0.03605100854564893
+    },
+    {
+      "ch": 31,
+      "diff": 0.02774752019324986
+    },
+    {
+      "ch": 17,
+      "diff": 0.025733379386221736
+    },
+    {
+      "ch": 24,
+      "diff": -0.02559001472556721
+    },
+    {
+      "ch": 1,
+      "diff": -0.025180864563288358
+    },
+    {
+      "ch": 29,
+      "diff": -0.023455121650125088
+    }
+  ],
+  "conclusion": "NEGATIVE: Grade-2 direction does not clearly encode dependencies either. d=0.034, 4-class=0.418, binary=0.619. The Probing signal (0.84) may come from a different mechanism."
+}

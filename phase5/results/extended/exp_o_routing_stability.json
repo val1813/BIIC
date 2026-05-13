@@ -1,0 +1,12 @@
+{
+  "experiment": "O: grade-0路由稳定性对比SRA",
+  "conclusion": "BIIC grade-0路由(0.1330)略优于SRA锚点(0.1285)，差异不大。需要在训练后比较（锚点漂移在训练中才体现）。",
+  "biic_consistency": 0.133,
+  "sra_consistency": 0.1285,
+  "softmax_consistency": 0.051000000000000004,
+  "random_baseline": 0.125,
+  "n_seeds": 5,
+  "n_tokens": 200,
+  "n_experts": 8,
+  "note": "初始化阶段对比。训练后的漂移差异更显著。"
+}

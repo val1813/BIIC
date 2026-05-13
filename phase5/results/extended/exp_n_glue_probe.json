@@ -1,0 +1,25 @@
+{
+  "experiment": "N: GLUE线性探针",
+  "conclusion": "grade-0平均准确率0.4867，接近随机基线。 grade-2(0.7772)优于grade-0(0.4867)，等变分量携带更多语义。",
+  "results": {
+    "sentiment": {
+      "grade0": 0.59,
+      "grade2": 0.95,
+      "all": 0.995
+    },
+    "similarity": {
+      "grade0": 0.42,
+      "grade2": 0.54,
+      "all": 0.61
+    },
+    "pos_tagging": {
+      "grade0": 0.45,
+      "grade2": 0.8416666666666667,
+      "all": 0.95
+    }
+  },
+  "random_baseline": {
+    "binary": 0.5,
+    "ternary": 0.333
+  }
+}

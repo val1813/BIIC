@@ -1,0 +1,88 @@
+{
+  "wedge_norm_by_rel": {
+    "nsubj": {
+      "mean": 4.4658147917127975,
+      "std": 0.5456816279064151,
+      "n": 2483
+    },
+    "obj": {
+      "mean": 4.476578801103938,
+      "std": 0.5712949340100143,
+      "n": 1361
+    },
+    "amod": {
+      "mean": 4.506008828864353,
+      "std": 0.556990684481946,
+      "n": 2206
+    },
+    "none": {
+      "mean": 4.589865061108856,
+      "std": 0.6718683967717379,
+      "n": 4236
+    }
+  },
+  "commutator_norm_by_rel": {
+    "nsubj": {
+      "mean": 8.931629583425595,
+      "std": 1.0913632558128301,
+      "n": 2483
+    },
+    "obj": {
+      "mean": 8.953157602207876,
+      "std": 1.1425898680200286,
+      "n": 1361
+    },
+    "amod": {
+      "mean": 9.012017657728705,
+      "std": 1.113981368963892,
+      "n": 2206
+    },
+    "none": {
+      "mean": 9.179730122217713,
+      "std": 1.3437367935434759,
+      "n": 4236
+    }
+  },
+  "ttest_all_dep_vs_none_wedge": {
+    "t_stat": -8.80486982330922,
+    "p_value": 1.5207007767679234e-18,
+    "cohens_d": -0.1734780142718881
+  },
+  "experiment": "M v3-wedge: Grade-1 Wedge Product Analysis",
+  "checkpoint": "/data/biic/biic_lm/checkpoints/final.pt",
+  "checkpoint_step": 10000,
+  "n_dep_pairs": 6050,
+  "n_nodep_pairs": 4236,
+  "ttest_per_rel_wedge": {
+    "nsubj": {
+      "t_stat": -7.811815410986848,
+      "p_value": 6.49876193088866e-15,
+      "cohens_d": -0.20268467025875755
+    },
+    "obj": {
+      "t_stat": -5.602550223870307,
+      "p_value": 2.2130130032910226e-08,
+      "cohens_d": -0.18166131065514568
+    },
+    "amod": {
+      "t_stat": -5.0297980653122165,
+      "p_value": 5.042889563635037e-07,
+      "cohens_d": -0.13588572227789783
+    }
+  },
+  "probe_accuracy_4class": 0.3806147724733341,
+  "probe_accuracy_3class": 0.42000000000000004,
+  "probe_accuracy_binary": 0.5512336221383476,
+  "dep_type_accuracy": {
+    "nsubj": 0.261377366089408,
+    "obj": 0.04996326230712711,
+    "amod": 0.22030825022665457,
+    "none": 0.8212936732766761
+  },
+  "tsne_separation": {
+    "nsubj": 0.9772235764425231,
+    "obj": 1.0869036143552058,
+    "amod": 0.9851838406175971
+  },
+  "conclusion": "NEGATIVE: Grade-1 wedge product does not encode dependencies. d=-0.173, 3-class=0.420, 4-class=0.381. Neither geometric product nor wedge product captures dependency structure."
+}

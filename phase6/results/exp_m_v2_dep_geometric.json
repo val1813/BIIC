@@ -1,0 +1,30 @@
+{
+  "experiment": "M v2: Dependency Geometric Product (Trained Model)",
+  "checkpoint": "/data/biic/biic_lm/checkpoints/final.pt",
+  "checkpoint_step": 10000,
+  "n_dep_pairs": 6050,
+  "n_nodep_pairs": 4236,
+  "n_cross_pairs": 500,
+  "ttest_pvalue": 2.0698887032157627e-15,
+  "ttest_statistic": -7.9494490357753085,
+  "cohens_d": -0.15697896927818777,
+  "dep_norm_mean": 16.005030479746416,
+  "dep_norm_std": 1.7842534825245107,
+  "nodep_norm_mean": 16.311050366860048,
+  "nodep_norm_std": 2.10166904844814,
+  "cross_norm_mean": 16.122253747940064,
+  "probe_accuracy": 0.43923737145389447,
+  "probe_accuracy_std": 0.00856779028423887,
+  "dep_type_accuracy": {
+    "nsubj": 0.27426500201369314,
+    "obj": 0.015429831006612785,
+    "amod": 0.2932910244786945,
+    "none": 0.7858829084041549
+  },
+  "tsne_separation": {
+    "nsubj": 1.0205693694117688,
+    "obj": 0.9892787247725516,
+    "amod": 1.0021776729283323
+  },
+  "conclusion": "NEGATIVE: Grade-2 geometric product does not clearly encode dependencies. p=0.000000, d=-0.157, probe_acc=0.439. Training did not induce dependency-specific geometric structure."
+}
